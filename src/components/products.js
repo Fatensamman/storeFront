@@ -32,7 +32,7 @@ const productViewer = props => {
                                         <CardMedia
                                             component="img"
                                             alt="Contemplative Reptile"
-                                            height="200"
+                                            height="350"
                                             image={product.img}
                                             title="Contemplative Reptile"
                                         />
