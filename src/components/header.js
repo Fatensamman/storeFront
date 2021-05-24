@@ -1,40 +1,48 @@
 import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import {Toolbar,Typography, Button } from '@material-ui/core';
+
+import { AppBar, Toolbar, Typography, Button } from '@material-ui/core';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import { connect } from 'react-redux';
 
 
 const useStyles = makeStyles(() => ({
-  
-  title: {
-    flexGrow: 1,
-    color: 'black',
-    fontSize: "4em",
-  },
-
-  navBar:
-  {
-    background: "#f5f5f5",
-  },
   button:
   {
     color: 'black',
     fontSize: "1em",
   },
-}));
+
+  title: {
+    flexGrow: 1,
+    color: 'white',
+    fontSize: "2em",
+  },
+
+  navBar:
+  {
+    background: '#6B5D81',
+  },
+})
+);
 
 
-function Header() {
+const Header = props => {
   const classes = useStyles();
   return (
     <AppBar position="static" className={classes.navBar}>
       <Toolbar>
-        <Typography variant="h6" className={classes.title}>
-        Our Store
+        <Typography variant="h1" className={classes.title}>
+          Our Store
     </Typography>
-        <Button  className={classes.button} color="inherit" >Cart (0)</Button>
+        <Button color='inherit'><ShoppingCartIcon />({props.cart.cart.length})</Button>
       </Toolbar>
     </AppBar>
   )
 }
+const mapStateToProps = state => {
+  return {
+    cart: state.cart
+  }
+}
 
-export default Header;
+export default connect(mapStateToProps)(Header);

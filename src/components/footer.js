@@ -1,12 +1,12 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import {AppBar,Toolbar,Typography} from '@material-ui/core';
+import { AppBar, Toolbar, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
     top: 'auto',
     bottom: 0,
-    height:'50px',
+    height: '50px',
     background: "#eeeeee",
 
   },
@@ -14,9 +14,9 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     color: 'black',
     fontSize: "1em",
-    textAlign:"center"
+    textAlign: "center"
   },
-  
+
 }));
 
 function Footer() {
@@ -24,9 +24,9 @@ function Footer() {
   return (
     <AppBar position="fixed" color="primary" className={classes.appBar}>
       <Toolbar>
-      <Typography variant="h6" className={classes.title}>
-      © 2021 React-Reduux 401 <br></br>
-    </Typography>
+        <Typography variant="h6" className={classes.title}>
+          © 2021 React-Reduux 401 <br></br>
+        </Typography>
       </Toolbar>
     </AppBar>
   );

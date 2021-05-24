@@ -22,7 +22,7 @@ const categoryReducer = (state = initialState, action) => {
             return initialState;
         default:
             return state
-        }
+    }
 }
 
 export const inactive = () => {
