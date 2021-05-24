@@ -21,7 +21,7 @@ const categoryReducer = (state = initialState, action) => {
         case 'INACTIVE':
             return initialState;
         default:
-            return { ...state, activeCategory: 'Food', activeDescription: 'Eat whatever you want, and if someone tries to lecture you about your weight, eat them too!' }
+            return state
         }
 }
 

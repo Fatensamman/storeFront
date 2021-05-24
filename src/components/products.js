@@ -12,20 +12,20 @@ import { getProducts } from '../store/products.js'
 const productViewer = props => {
     return (
         <>
-            <Typography variant="h3" component="h3">Products</Typography>
+            <Typography variant="h5" component="h5">Browse our Categories</Typography>
             <Button onClick={() => props.active('Food', 'Eat whatever you want, and if someone tries to lecture you about your weight, eat them too!')}>Food</Button>
+            <span>|</span>
             <Button onClick={() => props.active('Electronics', 'Electronics is clearly the winner of the day.')}>Electronics</Button>
 
+            {console.log('products........', props.products)}
 
-            <If condition={props.products.products}>
+            <If condition={props.products}>
                 <Then>
-
-
                     <h2 style={{ textAlign: "center" }}>{props.categories.activeCategory}</h2>
-                    <p style={{ textAlign: "center" , marginBottom:"3rem"}}>{props.categories.activeDescription}</p>
-                    <Grid style={{marginBottom:'50px'}} container justify="center" spacing={4}>
-                        {console.log('categories........', props.products.products)}
-                        {props.products.products.map((product, index) => {
+                    <p style={{ textAlign: "center", marginBottom: "3rem" }}>{props.categories.activeDescription}</p>
+                    <Grid style={{ marginBottom: '50px' }} container justify="center" spacing={4}>
+                        {/* {console.log('products........', props.products.products)} */}
+                        {props.products.activeProduct.map((product, index) => {
                             return (
                                 <Grid item key={index}>
                                     <Card >

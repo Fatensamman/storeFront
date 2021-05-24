@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <Header />
-      <main style={{width:"98.5%"}}>
+      <main style={{margin:"2rem",width:"98.5%"}}>
         
         <Products />
       </main>

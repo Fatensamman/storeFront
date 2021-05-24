@@ -8,7 +8,7 @@ const useStyles = makeStyles(() => ({
   title: {
     flexGrow: 1,
     color: 'black',
-    fontSize: "2em",
+    fontSize: "4em",
   },
 
   navBar:
