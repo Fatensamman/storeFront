@@ -6,13 +6,13 @@ const SimpleCart = props => {
   if (props.cart.cart.length > 0) {
     return (
       <>
-        <Card style={{ textAlign: 'left', float: 'right', width: '200px' }}>
+        <Card style={{  width: '200px' ,position:"absolute",left:'1140px'}}>
           <Typography component="p">Cart</Typography>
           <CardContent>
             {props.cart.cart.map((product, i) => {
               return (
                 <Typography key={i} className='banana'>
-                  {product.name}:  ${product.price}
+                  {product.name}
                 </Typography>
               )
             })}

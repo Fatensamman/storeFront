@@ -105,11 +105,12 @@ const ProductViewer = props => {
                                         <CardContent>
                                             <Typography component="p">{product.description}</Typography>
                                             <br />
-                                            <Typography component="p">In Stock:{product.inStock}</Typography>
+                                            <Typography component="p">  {product.inStock > 0
+                                                ? `In stock, ${product.inStock} items` : 'Out of Stock'}</Typography>
                                             <Typography component="p">Price: ${product.price}</Typography>
                                         </CardContent>
                                         <CardActions>
-                                            <IconButton style={{ fontSize: '1.2rem', color: '#586a89' }} onClick={() => props.addToCart(product)}>Add to cart</IconButton>
+                                            <IconButton style={{ fontSize: '1.2rem', color: '#586a89' }} onClick={() => props.addToCart(product)} disabled={product.inStock > 0 ? false : true}>Add to cart</IconButton>
                                             <IconButton style={{ fontSize: '1.2rem', color: '#586a89' }}>View details</IconButton>
                                         </CardActions>
                                     </Card>

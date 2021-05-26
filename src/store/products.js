@@ -13,7 +13,7 @@ const initialState = {
             name: 'Monitor',
             description: 'HP Pavilion 22cwa 21.5-Inch Full HD 1080p IPS LED Monitor, Tilt, VGA and HDMI (T4Q59AA) - Black',
             category: 'Electronics',
-            inStock: 100,
+            inStock: 10,
             price: 149.99,
             img: 'https://images.samsung.com/is/image/samsung/levant-led-monitor-s24f350fhm-ls24f350fhmxzn-frontblack-76804078?$720_576_PNG$'
 
@@ -40,7 +40,7 @@ const initialState = {
             name: 'TV',
             description: 'Insignia NS-39DF310NA21 39-inch Smart HD 720p TV - Fire TV Edition',
             category: 'Electronics',
-            inStock: 70,
+            inStock: 20,
             price: 799.00,
             img: 'https://images.samsung.com/is/image/samsung/levant-uhd-tu8000-ua55tu8000uxtw-frontblack-229856496?$720_576_PNG$'
         },
@@ -56,7 +56,7 @@ const initialState = {
             name: 'Calzones',
             description: 'Easy Calzones are stuffed full of pepperoni and mozzarella',
             category: 'Food',
-            inStock: 40,
+            inStock: 20,
             price: 4.00,
             img: 'https://images-gmi-pmc.edge-generalmills.com/9df0ff18-e881-4221-ac91-710b37668b03.jpg',
         },
