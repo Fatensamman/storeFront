@@ -11,8 +11,13 @@ export default function cartReducer(state = initialState, action) {
       // console.log('before',payload)
       // // payload.inStock--;
       // console.log('',payload)
-
-      return { ...state, cart: [...state.cart, payload], inStock: payload.inStock-- };
+      if (!state.cart.includes(payload)) {
+        return { ...state, cart: [...state.cart, payload], inStock: payload.inStock-- };
+      } 
+      else {
+        return { ...state, cart: [...state.cart], inStock: payload.inStock-- };
+      }
+      // return { ...state, cart: [...state.cart, payload], inStock: payload.inStock-- };
     default:
       return state;
   }
