@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import { If, Else, Then } from 'react-if';
 import { Typography, Grid, Card, CardHeader, CardContent, CardActions, IconButton, CardMedia, Tabs, Tab } from '@material-ui/core';
@@ -8,6 +8,7 @@ import { connect } from 'react-redux'; // this ensures that we are connected to 
 import { inactive, active } from '../store/categories.js';
 import { getProducts } from '../store/products.js'
 import { addToCart } from '../store/cart.js';
+import { loadProducts } from '../store/products.js';
 
 const AntTabs = withStyles({
     root: {
@@ -64,6 +65,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const ProductViewer = props => {
+    useEffect(() => {
+        props.loadProducts();
+    }, []);
     const classes = useStyles();
     // const [setValue] = React.useState(0);
     const [value, setValue] = React.useState(0);
@@ -77,30 +81,29 @@ const ProductViewer = props => {
                 <div className={classes.demo1}>
                     <Typography variant="h5" component="h5">Browse our Categories</Typography>
                     <AntTabs value={value} onChange={handleChange} aria-label="ant example">
-                        <AntTab label="Food" onClick={() => props.active('Food', 'Eat whatever you want, and if someone tries to lecture you about your weight, eat them too!')} />
-                        <AntTab label="Electronics" onClick={() => props.active('Electronics', 'Electronics is clearly the winner of the day.')} />
+                        <AntTab label="Food" onClick={() => props.active('food', 'Eat whatever you want, and if someone tries to lecture you about your weight, eat them too!')} />
+                        <AntTab label="Electronics" onClick={() => props.active('electronics', 'Electronics is clearly the winner of the day.')} />
+                        <AntTab label="Console" onClick={() => props.active('console', '^__^')} />
+                        <AntTab label="Mobile" onClick={() => props.active('mobile', '^__^')} />
+                        <AntTab label="Phones" onClick={() => props.active('phones', '^__^')} />
+
                     </AntTabs>
                     <Typography className={classes.padding} />
                 </div>
             </div>
-            {console.log('products........', props.products)}
-            <If condition={props.products}>
-                <Then>
-                    <h2 style={{ textAlign: "center" }}>{props.categories.activeCategory}</h2>
+            {console.log('products........', props.products.productList)}
+            {/* <If condition={!props.products.products}>
+                <Then> */}
+                    <h2 style={{ textAlign: "center" }}>{props.categories.activeCategory.toUpperCase()}</h2>
                     <p style={{ textAlign: "center", marginBottom: "3rem" }}>{props.categories.activeDescription}</p>
                     <Grid style={{ marginBottom: '50px' }} container justify="center" spacing={4}>
-                        {props.products.activeProduct.map((product, index) => {
+                        {props.products.productList.map((product, index) => {
+                            if (product.category === props.categories.activeCategory) {
+                                if(product.inStock!==0){
+
                             return (
-                                <Grid item key={index}>
+                                <Grid item key={product._id}>
                                     <Card style={{ width: '25rem' }}>
-                                        <CardMedia style={{ width: '25rem', height: '20rem' }}
-                                            component="img"
-                                            alt="Contemplative Reptile"
-                                            // height='20rem'
-                                            // width= '25rem'
-                                            image={product.img}
-                                            title="Contemplative Reptile"
-                                        />
                                         <CardHeader title={product.name} />
                                         <CardContent>
                                             <Typography component="p">{product.description}</Typography>
@@ -115,14 +118,14 @@ const ProductViewer = props => {
                                         </CardActions>
                                     </Card>
                                 </Grid>
-                            )
+                            )}}else{ return null}
                         })}
                     </Grid>
-                </Then>
+                {/* </Then>
                 <Else>
                     <div></div>
-                </Else>
-            </If>
+                </Else> */}
+            {/* </If> */}
         </>
     );
 }
@@ -135,7 +138,8 @@ const mapDispatchToProps = {
     inactive,
     active,
     getProducts,
-    addToCart
+    addToCart,
+    loadProducts,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductViewer);

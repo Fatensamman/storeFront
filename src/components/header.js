@@ -34,7 +34,7 @@ const Header = props => {
         <Typography variant="h1" className={classes.title}>
           Our Store
     </Typography>
-        <Button color='inherit'><ShoppingCartIcon />({props.cart.cart.length})</Button>
+        <Button color='inherit'><ShoppingCartIcon />({props.cart.cartNum.length})</Button>
       </Toolbar>
     </AppBar>
   )

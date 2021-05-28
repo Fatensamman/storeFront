@@ -1,12 +1,17 @@
 const initialState = {
     categoryList: [
         {
-            name: 'Food',
+            name: 'food',
             description: 'Eat whatever you want, and if someone tries to lecture you about your weight, eat them too!',
         },
         {
-            name: 'Electronics',
+            name: 'electronics',
             description: 'Electronics is clearly the winner of the day.',
+        },
+        {
+            name:'console',
+            description: '^__^',
+
         }
     ],
     activeCategory: '',
