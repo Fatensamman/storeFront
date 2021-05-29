@@ -2,7 +2,7 @@
 Virtual Store
 
 ## deployed link:
-[front store](https://storefront-7.netlify.app/)
+[front store](https://storefront-401.herokuapp.com/)
 
 ### UML 
  ![uml](123.jpg)
