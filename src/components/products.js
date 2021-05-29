@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
-import { If, Else, Then } from 'react-if';
-import { Typography, Grid, Card, CardHeader, CardContent, CardActions, IconButton, CardMedia, Tabs, Tab } from '@material-ui/core';
+import { Typography, Grid, Card, CardHeader, CardContent, CardActions, IconButton, Tabs, Tab } from '@material-ui/core';
 
 import { connect } from 'react-redux'; // this ensures that we are connected to our redux store
 // import directly from the store directory.
